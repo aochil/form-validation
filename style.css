@@ -1,0 +1,16 @@
+.error{
+    color: red;
+}
+#message{
+    display: none;
+}
+.valid {
+    color: green;
+    
+}
+#confirmError{
+    display: none;
+}
+#zipMsg{
+    display: none;
+}

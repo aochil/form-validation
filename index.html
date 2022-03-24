@@ -7,15 +7,22 @@
 </head>
 <body>
     <div id="container">Create an Account
-        <form id="form">
-            <label for="username">Enter username:</label><br>
-            <input type="text"><br>
+        <form id="form" novalidate>
+            <label for="email" >Enter e-mail:</label><br>
+              <input type="email" id="email" required minlength="12"><br>
+              <span class="error" id="emailError" aria-live="polite"></span><br>
 
             <label for="password">Enter password:</label><br>
-            <input type="password"><br>
+              <input type="password" id="password" onfocus="focus" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
+                <div id="message">
+                  <span class="error" id="pUppercase" aria-live="polite">*Must contain 1 uppercase letter</span><br>
+                  <span class="error" id="pNumber" aria-live="polite">*Must contain 1 number</span><br>
+                  <span class="error" id="pLength" aria-live="polite">*Must be atleast 9 characters</span><br>
+                </div>
 
             <label for="confirmPassword">Confirm password:</label><br>
-            <input type="password"><br>
+              <input type="password" id="confirmPassword"><br>
+              <span class="error" id="confirmError" aria-live="polite"></span><br>
 
             <label for="country">Country:</label><br>
             <select name="country" id="country">
@@ -266,8 +273,10 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
             </select><br>
+
             <label for="zipcode">Zip Code:</label><br>
-            <input type="number"><br>
+              <input type="number" id="zipcode"  maxlength="5"><br>
+            <span class="error" id="zipMsg">*Must be 5 digits</span><br>
 
             <label for="submit"></label><br>
             <input type="submit">
