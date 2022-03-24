@@ -6,7 +6,7 @@ let emailValid = false;
 
 const validateEmail = ()=>{
     email.addEventListener('keyup', ()=>{
-        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value)){
+        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value)){ //checks if valid email format
             emailValid = true;
             emailError.textContent = 'Valid e-mail entered.'
             emailError.classList.remove('error');
@@ -37,7 +37,7 @@ let passwordValid = false;
 
 const validatePassword = ()=>{
     password.addEventListener('keyup', ()=>{
-        if(password.value.match(upperCaseLetters)){
+        if(password.value.match(upperCaseLetters)){ //checks if uppercase letter exists
             upper.classList.remove('error');
             upper.classList.add('valid');
             passwordValid = true;
@@ -48,7 +48,7 @@ const validatePassword = ()=>{
             passwordValid = false;
           }
     
-        if(password.value.match(numbers)){
+        if(password.value.match(numbers)){  //checks if a number exists
             number.classList.remove('error');
             number.classList.add('valid');
             passwordValid = true;
@@ -60,7 +60,7 @@ const validatePassword = ()=>{
         }
     
         if(password.value.length >= 9) {
-            length.classList.remove('error');
+            length.classList.remove('error'); //checks password length
             length.classList.add('valid');
             passwordValid = true;
         }
@@ -118,6 +118,8 @@ const confirmMatch = ()=>{
 }
 confirmMatch();
 
+const country = document.querySelector('#country')
+
 const zipcode = document.querySelector('#zipcode')
 const zipMsg = document.querySelector('#zipMsg');
 
@@ -163,6 +165,11 @@ const validateForm = ()=>{
         if(passwordsMatch === false) {
             confirmPassword.style.border = '2px solid red';
             confirmPassword.style.background = '#f3d7d7'
+            e.preventDefault();
+        }
+        if(country.value == 'Select') {
+            country.style.border = '2px solid red';
+            country.style.background = '#f3d7d7';
             e.preventDefault();
         }
         if(zipValid === false) {
